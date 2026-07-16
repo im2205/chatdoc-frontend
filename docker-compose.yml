@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  frontend:
+    container_name: chatdoc-frontend
+    image: im2205/chatdoc-frontend:latest
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - chatdoc-common:/common
+
+volumes:
+  chatdoc-common:
+    external: true
+    name: chatdoc-common
