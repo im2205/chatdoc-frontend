@@ -1,5 +1,7 @@
 import {useEffect, useState} from "react";
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 function App() {
 
@@ -35,16 +37,14 @@ function App() {
 
 
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold">
-          ChatDoc
-        </h1>
-        <p className="mt-5">
-          {status}
-        </p>
-      </div>
-    </main>
+    <div className="bg-white">
+      <Navbar />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </Router>
+    </div>
   );
 
 }
